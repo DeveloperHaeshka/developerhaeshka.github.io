@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
-    <title>Новый никнейм | t.me/qwegamebot</title>
+    <title>Новый никнейм | QWE PROJECT</title>
   </head>
   <style>
 
@@ -21,8 +21,9 @@
       padding: 10px;
       margin-top: 30px;
       font-family: 'Montserrat', sans-serif;
-      width: 425px;
-      height: 300px;
+      width: 325px;
+      height: 200px;
+      font-size: 12px;
     }
 
     .startikon:hover {
@@ -57,11 +58,11 @@
     }
 
     .rules {
-      font-size: 17px;
+      font-size: 10px;
       font-family: monospace;
       color: rgb(70, 70, 70);
-      width: 425px;
-      height: 200px;
+      width: 325px;
+      height: 100px;
       margin-top: 0px;
       overflow: hidden auto;
     }
@@ -80,7 +81,9 @@
       transition: all 0.3s ease;
       border-radius: 10px;
       font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
       margin-top: 30px;
+      height: 150px;
     }
 
     .cart:hover {
@@ -93,8 +96,9 @@
       color: rgb(255, 255, 255);
       box-shadow: 0 0px 7px rgb(255, 255, 255);
       height: 40px;
-      width: 500px;
+      width: 200px;
       transition: all 0.7s ease;
+      border-radius: 15px;
     }
 
     input:focus {
@@ -102,6 +106,10 @@
       font-weight: bold;
       box-shadow: 0 0px 18px rgb(255, 255, 255);
       background-color: white;
+    }
+
+    .finish-button {
+      margin-top: 100px;
     }
 
   </style>
@@ -124,7 +132,7 @@
       <h1>Новый никнейм</h1>
       <input type="text" placeholder="от 5 до 25 символов" id="newnick">
       <div id="error"></div>
-      <button id="finish">Закончить</button>
+      <button id="finish", class="finish-button">Закончить</button>
     </div>
   </form>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>

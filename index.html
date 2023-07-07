@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Новый никнейм | QWE PROJECT</title>
+  </head>
+  <style>
+
+    .text-startikon {
+      margin-top: 20px;
+      text-align: center;
+      display: grid;
+      place-items: center;
+    }
+
+    .startikon {
+      box-shadow: 0 0px 7px rgb(255, 255, 255);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      color: white;
+      padding: 10px;
+      margin-top: 30px;
+      font-family: 'Montserrat', sans-serif;
+      width: 425px;
+      height: 300px;
+    }
+
+    .startikon:hover {
+      box-shadow: 0 0px 20px rgb(255, 255, 255);
+    }
+    
+    button {
+      box-shadow: 0 0px 0px rgb(0, 255, 0);
+      transition: all 0.5s ease;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 30px;
+      height: 50px;
+      width: 150px;
+      background: rgb(255, 255, 255);
+      cursor: pointer;
+      border: 0;
+    }
+
+    button:hover {
+      box-shadow: 0 0px 15px rgb(0, 255, 0);
+      background: rgb(0, 255, 0);
+    }
+
+    #main {
+      display: grid;
+      place-items: center;
+    }
+
+    body {
+      background: black;
+    }
+
+    .rules {
+      font-size: 17px;
+      font-family: monospace;
+      color: rgb(70, 70, 70);
+      width: 425px;
+      height: 200px;
+      margin-top: 0px;
+      overflow: hidden auto;
+    }
+
+    #form {
+      display: none;
+      place-items: center;
+    }
+
+    .cart {
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: 0 0px 7px rgb(255, 255, 255);
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 30px;
+    }
+
+    .cart:hover {
+      box-shadow: 0 0px 18px rgb(255, 255, 255);
+    }
+
+    input {
+      border: 0;
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      box-shadow: 0 0px 7px rgb(255, 255, 255);
+      height: 40px;
+      width: 500px;
+      transition: all 0.7s ease;
+    }
+
+    input:focus {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      box-shadow: 0 0px 18px rgb(255, 255, 255);
+      background-color: white;
+    }
+
+  </style>
+  <body>
+    <div id="main">
+      <div class="startikon">
+        <div class="text-startikon">
+          <h1>Правила никнеймов</h1>
+          <div class="rules">
+            <p>Запрещенные любые не понятные и не разборчивые иероглифы и так же прозрачные символы, запрещено делать никнейм в оскорбительных целях или же в попытке кого либо унизить. В случае нарушений правил, вы будете наказаны </p>
+          </div>
+        </div>
+      </div>
+
+      <button id="createnick">Продолжить</button>
+    </div>
+  </body>
+  <form id="form">
+    <div class="cart">
+      <h1>Новый никнейм</h1>
+      <input type="text" placeholder="от 5 до 25 символов" id="newnick">
+      <div id="error"></div>
+      <button id="finish">Закончить</button>
+    </div>
+  </form>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+      let tg = window.Telegram.WebApp;
+      let createnick = document.getElementById('createnick')
+      let finish = document.getElementById('finish')
+
+      createnick.addEventListener('click', () => {
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('form').style.display = 'grid';
+      })
+
+      finish.addEventListener('click', () => {
+        let newnick = document.getElementById('newnick').value;
+
+        if(newnick.length < 5) {
+          document.getElementById('error').innerText = 'никнейм не подходит';
+          return;
+        } else {
+          if(newnick.length > 25) {
+            document.getElementById('error').innerText = 'никнейм не подходит';
+            return;
+          }
+        }
+      })
+
+      let data = {
+        status: 'newnick',
+        newnick: newnick
+      }
+
+      tg.sendData(JSON.stringify(data))
+      tg.close()
+      
+  </script>
+
+</html>

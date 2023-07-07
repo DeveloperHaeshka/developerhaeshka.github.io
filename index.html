@@ -132,6 +132,8 @@
       let tg = window.Telegram.WebApp;
       let createnick = document.getElementById('createnick')
       let finish = document.getElementById('finish')
+      tg.expand()
+
 
       createnick.addEventListener('click', () => {
         document.getElementById('main').style.display = 'none';
@@ -156,10 +158,9 @@
           status: 'newnick',
           newnick: newnick
         }
-
         tg.sendData(JSON.stringify(data))
-        tg.close()
       })
+
   </script>
 
 </html>

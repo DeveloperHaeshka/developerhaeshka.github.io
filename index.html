@@ -150,16 +150,16 @@
             return;
           }
         }
+
+
+        let data = {
+          status: 'newnick',
+          newnick: newnick
+        }
+
+        tg.sendData(JSON.stringify(data))
+        tg.close()
       })
-
-      let data = {
-        status: 'newnick',
-        newnick: newnick
-      }
-
-      tg.sendData(JSON.stringify(data))
-      tg.close()
-      
   </script>
 
 </html>
